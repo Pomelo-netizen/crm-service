@@ -1,4 +1,4 @@
-package com.mxtech.crm.crm_service;
+package com.mxtech.crm;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
