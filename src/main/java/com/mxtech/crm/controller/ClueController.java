@@ -18,6 +18,11 @@ public class ClueController {
     @Autowired
     private ClueService clueService;
 
+    /**
+     *  线索详情查询
+     * @param id
+     * @return
+     */
     @GetMapping("/{id}")
     @Cacheable(value = "clue", key = "#id")
     public Clue getClueById(@PathVariable Long id) {
@@ -29,6 +34,10 @@ public class ClueController {
         return clueService.getAllClues();
     }
 
+    /**
+     * 线索录入
+     * @param clue
+     */
     @PostMapping
     public void insertClue(@RequestBody Clue clue) {
         clueService.insertClue(clue);
@@ -44,6 +53,12 @@ public class ClueController {
         clueService.deleteClue(id);
     }
 
+    /**
+     * 线索列表查询（按页面）
+     * @param page
+     * @param size
+     * @return
+     */
     @GetMapping("/page")
     public IPage<Clue> getCluesByPage(@RequestParam int page, @RequestParam int size) {
         Page<Clue> cluePage = new Page<>(page, size);
